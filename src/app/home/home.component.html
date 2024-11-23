@@ -1,0 +1,87 @@
+<div class="landing-page">
+    <img src="assets/Images/Home.png" alt="Home Image" class="home-logo">
+</div>
+
+<div class="carousel-wrapper">
+    <h2 class="slider-title">Best Selling Products</h2>
+    <owl-carousel-o [options]="customOptions" class="product-slider">
+        <ng-template carouselSlide *ngFor="let product of products">
+            <div class="product-card">
+                <a [routerLink]="['/productdetails', product.productDtoId]" class="product-link">
+                    <div class="product-card-image-wrapper">
+                        <img [src]="product.imageCoverUrl" alt="{{ product.name }}" class="product-image" />
+                    </div>
+                </a>
+                <div class="product-card-content">
+                    <h2 class="product-name">{{ product.name }}</h2>
+                    <p class="product-description">{{ product.description }}</p>
+                    <p class="product-price">{{ product.price }} EGP</p>
+                    <div class="product-rating">
+                        <ng-container *ngFor="let star of getStars(product.averageRating)">
+                            <i [ngClass]="{
+                                'bi bi-star-fill': star === 'full',
+                                'bi bi-star-half': star === 'half',
+                                'bi bi-star': star === 'empty'
+                            }"></i>
+                        </ng-container>
+                        <span class="rating-count">({{ product.ratingCount }})</span>
+                    </div>
+                    <div class="product-details">
+                        <span [routerLink]="['/categorydetails', product.categoryDto?.id]" class="product-category">
+                            {{ product.categoryDto?.name }}
+                        </span>
+                        <span [routerLink]="['/brandsdetails', product.brandDto?.id]" class="product-brand">
+                            {{ product.brandDto?.name }}
+                        </span>
+                    </div>
+                    <div class="product-actions">
+                        <a (click)="addToFavorites(product.productDtoId)" class="add-to-favorites">
+                            <i class="fa-regular fa-heart"></i>
+                        </a>
+                        <button (click)="addtocart(product.productDtoId)" class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+</div>
+
+
+
+<div class="carousel-wrapper new-arrivals-carousel">
+    <h2 class="slider-title">New Arrivals</h2>
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let product of products">
+            <div class="product-card">
+                <a [routerLink]="['/productdetails', product.productDtoId]" class="product-link">
+                    <div class="product-card-image-wrapper">
+                        <img [src]="product.imageCoverUrl" alt="{{ product.name }}" class="product-image" />
+                    </div>
+                </a>
+                <div class="product-card-content">
+                    <h2 class="product-name">{{ product.name }}</h2>
+                    <p class="product-description">{{ product.description }}</p>
+                    <p class="product-price">{{ product.price }} EGP</p>
+                    <div class="product-rating">
+                        <ng-container *ngFor="let star of getStars(product.averageRating)">
+                            <i [ngClass]="{
+                                'bi bi-star-fill': star === 'full',
+                                'bi bi-star-half': star === 'half',
+                                'bi bi-star': star === 'empty'
+                            }"></i>
+                        </ng-container>
+                        <span class="rating-count">({{ product.ratingCount }})</span>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <a (click)="addToFavorites(product.productDtoId)"
+                           class="text-decoration-none position-relative">
+                            <i class="fa-regular fa-heart text-main fs-5"></i>
+                        </a>
+                        <button (click)="addtocart(product.productDtoId)" class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+</div>

@@ -1,0 +1,36 @@
+.navbar .nav-link {
+    font-weight: bold;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #ff6f61;
+    transform: scale(1.1);
+}
+
+.navbar .active-link {
+    color: #fff !important;
+    background-color: #ff6f61 !important;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.navbar .text-main {
+    color: #ff6f61 !important;
+}
+
+.navbar .fa-cart-shopping:hover,
+.navbar .fa-star:hover {
+    color: #ff6f61;
+    transform: scale(1.2);
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 0.4em 0.5em;
+    font-weight: bold;
+    transform: translateY(-20%);
+}

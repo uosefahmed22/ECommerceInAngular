@@ -1,0 +1,37 @@
+<div class="wishlist-container" *ngIf="favoriteItems.length > 0; else noWishlist">
+    <h2 class="wishlist-header">Wishlist ({{ totalWishlistItems }})</h2>
+
+    <div class="wishlist-grid">
+        <div class="wishlist-card" *ngFor="let item of favoriteItems">
+            <div class="wishlist-image-container">
+                <img [src]="item.imageCoverUrl || 'assets/default-image.jpg'" alt="{{ item.name }}"
+                    class="wishlist-image" loading="lazy" />
+            </div>
+            <div class="wishlist-details">
+                <h3 class="wishlist-name">{{ item.name }}</h3>
+                <p class="wishlist-description">
+                    {{ item.description || 'No description available.' }}
+                </p>
+                <p class="wishlist-price">Price: ${{ item.price }}</p>
+            </div>
+            <div class="wishlist-actions">
+                <button (click)="removewishlistItem(item.productId)" class="wishlist-button remove-button">
+                    Remove
+                </button>
+                <button (click)="navigateToProduct(item.productId)" class="wishlist-button details-button">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #noWishlist>
+    <div class="no-wishlist">
+        <h2>Your Wishlist is Empty</h2>
+        <p>Browse products and add them to your wishlist to keep track of them.</p>
+        <button (click)="navigateToProducts()" class="wishlist-button browse-button">
+            Explore Products
+        </button>
+    </div>
+</ng-template>

@@ -1,0 +1,55 @@
+.brand-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.brand-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.brand-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.brand-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.brand-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.brand-details {
+    padding: 15px;
+}
+
+.brand-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.brand-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}

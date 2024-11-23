@@ -1,0 +1,54 @@
+<div class="product-container">
+    <div class="product-card" *ngFor="let product of products">
+        <a [routerLink]="['/productdetails', product.productDtoId]" class="product-link">
+            <div class="image-container">
+                <img [src]="product.imageCoverUrl" alt="{{ product.name }}" class="product-image" />
+                <div class="icon-overlay">
+                    <button (click)="addtocart(product.productDtoId)" class="icon-button">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button (click)="addToFavorites(product.productDtoId)" class="icon-button">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </a>
+
+        <div class="product-details">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-price">Price: <span>{{ product.price }} EGP</span></p>
+            <div class="product-meta">
+                <span [routerLink]="['/categorydetails', product.categoryDto?.id]" class="badge category">
+                    {{ product.categoryDto?.name }}
+                </span>
+                <span [routerLink]="['/brandsdetails', product.brandDto?.id]" class="badge brand">
+                    {{ product.brandDto?.name }}
+                </span>
+            </div>
+            <div class="product-rating">
+                <ng-container *ngFor="let star of getStars(product.averageRating)">
+                    <i [ngClass]="{
+                            'bi bi-star-fill': star === 'full',
+                            'bi bi-star-half': star === 'half',
+                            'bi bi-star': star === 'empty'
+                        }"></i>
+                </ng-container>
+                <span class="rating-count">({{ product.ratingCount }})</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pagination">
+    <button class="pagination-btn" (click)="onPreviousPage()" [disabled]="pageIndex === 1">
+        &lt;
+    </button>
+    <ng-container *ngFor="let page of getPagesArray()">
+        <button class="pagination-btn" (click)="onPageClick(page)" [class.active]="page === pageIndex">
+            {{ page }}
+        </button>
+    </ng-container>
+    <button class="pagination-btn" (click)="onNextPage()" [disabled]="pageIndex === totalPages">
+        &gt;
+    </button>
+</div>

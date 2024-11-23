@@ -1,0 +1,11 @@
+<div class="brand-container">
+    <div class="brand-card" *ngFor="let brand of Brands">
+        <a [routerLink]="['/brandsdetails', brand.id]" class="category-link">
+            <img [src]="brand.imageUrl" alt="{{ brand.name }}" class="brand-image" />
+            <div class="brand-details">
+                <h3 class="brand-name">{{ brand.name }}</h3>
+                <p class="brand-description">{{ brand.description }}</p>
+            </div>
+        </a>
+    </div>
+</div>

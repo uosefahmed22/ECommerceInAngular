@@ -1,0 +1,35 @@
+<div class="favorite-container" *ngIf="favoriteItems.length > 0; else noFavorites">
+    <h2 class="favorite-header">Your Favorite Items ({{ numOfFavoriteItems }})</h2>
+
+    <div class="favorite-grid">
+        <div class="favorite-card" *ngFor="let item of favoriteItems">
+            <div class="favorite-image-container">
+                <img [src]="item.imageCoverUrl || 'assets/default-image.jpg'" alt="{{ item.name }}"
+                    class="favorite-image" loading="lazy" />
+            </div>
+            <div class="favorite-details">
+                <h3 class="favorite-name">{{ item.name }}</h3>
+                <p class="favorite-description">{{ item.description || 'No description available.' }}</p>
+                <p class="favorite-price">Price: ${{ item.price }}</p>
+            </div>
+            <div class="favorite-actions">
+                <button (click)="removeFavoriteItem(item.productId)" class="action-button remove-button"
+                    title="Remove from favorites">
+                    Remove
+                </button>
+                <button (click)="navigateToProduct(item.productId)" class="action-button details-button"
+                    title="View product details">
+                    Details
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #noFavorites>
+    <div class="no-favorites">
+        <h2>You don't have any favorite items yet!</h2>
+        <p>Browse products and add them to your favorites to see them here.</p>
+        <button (click)="navigateToProducts()" class="action-button browse-button">Browse Products</button>
+    </div>
+</ng-template>

@@ -1,0 +1,29 @@
+<div class="payment-container">
+    <h2 class="payment-header">Checkout</h2>
+    <form [formGroup]="addressform" (ngSubmit)="onSubmit()" class="payment-form">
+        <div class="form-group">
+            <label for="Address">Detailed Address</label>
+            <input id="Address" type="text" formControlName="Address" class="form-control"
+                placeholder="Enter your address" />
+        </div>
+
+        <div class="form-group">
+            <label for="city">City</label>
+            <input id="city" type="text" formControlName="city" class="form-control" placeholder="Enter your city" />
+        </div>
+
+        <div class="form-group">
+            <label for="PhoneNumber">Phone Number</label>
+            <input id="PhoneNumber" type="text" formControlName="PhoneNumber" class="form-control"
+                placeholder="Enter your phone number" />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit" class="submit-button" [disabled]="isloading || addressform.invalid">
+                <span *ngIf="isloading" class="spinner"></span>
+                <span *ngIf="!isloading">Proceed to Pay</span>
+            </button>
+        </div>
+    </form>
+</div>

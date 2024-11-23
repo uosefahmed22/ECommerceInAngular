@@ -1,0 +1,38 @@
+<div class="brand-details-container">
+    <div *ngIf="brand" class="brand-banner">
+        <h1 class="brand-name">{{ brand.name }}</h1>
+        <p class="brand-description">{{ brand.description }}</p>
+    </div>
+
+    <div class="products-grid" *ngIf="products && products.length > 0">
+        <div class="product-card" *ngFor="let product of products">
+            <a [routerLink]="['/productdetails', product.id]" class="product-link">
+                <img [src]="product.imageCoverUrl" alt="{{ product.name }}" class="product-image" />
+            </a>
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-description">{{ product.description }}</p>
+            <p class="product-price">{{ product.price}} EGP</p>
+            <div class="product-rating">
+                <ng-container *ngFor="let star of getStars(product.averageRating)">
+                    <i [ngClass]="{
+              'fas fa-star': star === 'full',
+              'fas fa-star-half-alt': star === 'half',
+              'far fa-star': star === 'empty'
+            }"></i>
+                </ng-container>
+            </div>
+            <div class="product-actions">
+                <button (click)="addToCart(product.id)" class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+                <button (click)="addToFavorites(product.id)" class="add-to-favorites-btn">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="products.length === 0" class="no-products">
+        <p>No products available for this brand.</p>
+    </div>
+</div>

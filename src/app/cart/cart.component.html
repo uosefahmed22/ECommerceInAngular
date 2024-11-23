@@ -1,0 +1,27 @@
+<div *ngFor="let item of cartItems" class="card mb-3">
+    <div class="row align-items-center">
+        <div class="col-md-3">
+            <img class="w-100 img" [src]="item.imageCoverUrl || '/assets/default-product.png'" alt="Product image" />
+        </div>
+
+        <div class="col-md-7">
+            <h3 class="h6 text-primary fw-bold">Product ID: {{ item.productId }}</h3>
+            <h3 class="h6 text-secondary fw-bold">Price: {{ item.price }} EGP</h3>
+            <h3 class="h6 text-success fw-bold">Total Price: {{ item.totalPriceOfItem }} EGP</h3>
+            <i (click)="removeItembtn(item.productId)" class="fa-solid fa-trash h4 text-danger cursor-pointer"></i>
+        </div>
+
+        <div class="col-md-2 text-center">
+            <i (click)="updateItemsCart('minus', item.productId, item.quantity)"
+                class="fa-solid h4 text-main fa-square-minus cursor-pointer"></i>
+            <span class="fw-bold text-dark mx-2">{{ item.quantity }}</span>
+            <i (click)="updateItemsCart('plus', item.productId, item.quantity)"
+                class="fa-solid h4 text-main fa-square-plus cursor-pointer"></i>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="numOfCartItems !== undefined" class="d-flex justify-content-center mt-3">
+    <h1 class="h3 text-danger fw-semibold gap-3">Total Price: {{ totalCartPrice }} EGP</h1>
+    <button [routerLink]="['/pay', cardId]" class="btn btn-success ms-3">Checkout</button>
+</div>

@@ -1,0 +1,34 @@
+.footer-logo {
+    width: 120px;
+    height: auto;
+}
+
+.footer-description {
+    font-size: 0.9rem;
+    color: #dcdcdc;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #f8c471;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: #dcdcdc;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #f8c471;
+}
+
+.footer-bottom {
+    font-size: 0.8rem;
+    color: #dcdcdc;
+}

@@ -1,0 +1,121 @@
+.brand-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.brand-banner {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.brand-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.brand-description {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.brand-carousel {
+    margin-bottom: 30px;
+}
+
+.brand-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #666;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #28a745;
+    margin: 10px 0;
+}
+
+.product-rating i {
+    color: #ffc107;
+    font-size: 16px;
+    margin: 0 2px;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.add-to-cart-btn,
+.add-to-favorites-btn {
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.add-to-favorites-btn:hover {
+    background-color: #c82333;
+    color: #fff;
+}
+
+.no-products {
+    text-align: center;
+    font-size: 16px;
+    color: #888;
+}

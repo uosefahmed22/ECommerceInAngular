@@ -1,0 +1,40 @@
+<div class="product-details" *ngIf="oneproduct">
+    <div class="product-images">
+        <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let img of oneproduct.productImagesUrls">
+                <ng-template carouselSlide>
+                    <div class="image-card">
+                        <img [src]="img" [alt]="oneproduct.name" class="carousel-image" />
+                    </div>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+    </div>
+
+    <div class="product-info">
+        <h1>{{ oneproduct.name || 'Product Name Not Available' }}</h1>
+        <p class="description">{{ oneproduct.description || 'No description available.' }}</p>
+        <p class="price">Price: {{ oneproduct.price }} EGP</p>
+        <ul class="details">
+            <li>Color: {{ oneproduct.color || 'N/A' }}</li>
+            <li>Size: {{ oneproduct.size || 'N/A' }}</li>
+            <li>Stock: {{ oneproduct.stock || 'Out of stock' }} available</li>
+        </ul>
+        <div class="product-rating">
+            <ng-container *ngFor="let star of getStars(oneproduct.averageRating)">
+                <i [ngClass]="{
+                    'bi bi-star-fill': star === 'full',
+                    'bi bi-star-half': star === 'half',
+                    'bi bi-star': star === 'empty'
+                }"></i>
+            </ng-container>
+            <span class="rating-count">({{ oneproduct.ratingCount }})</span>
+        </div>
+        <br>
+        <br>
+        <button class="buy-now" (click)="addtocart(oneproduct.id)">Buy Now</button>
+
+        
+    </div>
+
+    <div *ngIf="errmessage" class="error-message" role="alert">{{ errmessage }}</div>
