@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-  baseUrl: string = 'https://localhost:7073/api/Checkout';
+  baseUrl: string = 'http://shopapp.runasp.net/api/Checkout';
   constructor(private _HttpCient: HttpClient) { }
 
   checkoutOrder(cartId: string, addressform: any): Observable<any> {

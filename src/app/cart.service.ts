@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 export class CartService {
   cartitemnumbers: BehaviorSubject<number>;
   usertoken: any = localStorage.getItem('token');
-  baseUrl: string = 'https://localhost:7073/api/ShoppingCart';
+  baseUrl: string = 'http://shopapp.runasp.net/api/ShoppingCart';
 
   constructor(private _HttpClient: HttpClient) {
     const storedCount = localStorage.getItem('cartItemCount');

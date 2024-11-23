@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FavoriteService {
-  baseUrl: string = 'https://localhost:7073/api/FavoriteWishlist';
+  baseUrl: string = 'http://shopapp.runasp.net/api/FavoriteWishlist';
   constructor(private _HttpClient: HttpClient) { }
 
   getFavoriteItems(): Observable<any> {

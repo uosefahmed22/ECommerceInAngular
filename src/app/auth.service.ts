@@ -8,7 +8,7 @@ import { Auth } from './auth';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl: string = 'https://localhost:7073/api/Auth';
+  baseUrl: string = 'http://shopapp.runasp.net/api/Auth';
   Userdata: BehaviorSubject<any> = new BehaviorSubject(null);
   redirectUrl: string = '';
 

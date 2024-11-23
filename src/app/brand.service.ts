@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BrandService {
-  baseUrl: string = 'https://localhost:7073/api/Brand';
+  baseUrl: string = 'http://shopapp.runasp.net/api/Brand';
   constructor(private _HttpClient: HttpClient, private _Router: Router) { }
 
   getBrands(): Observable<any> {

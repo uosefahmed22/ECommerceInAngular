@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CategoryService {
-  baseUrl: string = 'https://localhost:7073/api/Category';
+  baseUrl: string = 'http://shopapp.runasp.net/api/Category';
   constructor(private _HttpClient: HttpClient, private _Router: Router) { }
 
   getCategories(): Observable<any> {

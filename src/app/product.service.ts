@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  baseUrl: string = 'https://localhost:7073/api/Product';
+  baseUrl: string = 'http://shopapp.runasp.net/api/Product';
   constructor(private _HttpClient: HttpClient, private _Router: Router) { }
 
   getBestSellingProducts(): Observable<any> {
